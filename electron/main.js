@@ -62,6 +62,64 @@ app.on('activate', () => {
   }
 })
 
+// ========== IPC 窗口控制处理 ==========
+
+// 最小化窗口
+ipcMain.handle('window:minimize', () => {
+  try {
+    if (mainWindow) {
+      mainWindow.minimize()
+      return { success: true }
+    }
+    return { success: false, error: '窗口不存在' }
+  } catch (error) {
+    return { success: false, error: error.message }
+  }
+})
+
+// 最大化/还原窗口
+ipcMain.handle('window:maximize', () => {
+  try {
+    if (mainWindow) {
+      if (mainWindow.isMaximized()) {
+        mainWindow.unmaximize()
+        return { success: true, isMaximized: false }
+      } else {
+        mainWindow.maximize()
+        return { success: true, isMaximized: true }
+      }
+    }
+    return { success: false, error: '窗口不存在' }
+  } catch (error) {
+    return { success: false, error: error.message }
+  }
+})
+
+// 关闭窗口
+ipcMain.handle('window:close', () => {
+  try {
+    if (mainWindow) {
+      mainWindow.close()
+      return { success: true }
+    }
+    return { success: false, error: '窗口不存在' }
+  } catch (error) {
+    return { success: false, error: error.message }
+  }
+})
+
+// 检查窗口是否最大化
+ipcMain.handle('window:isMaximized', () => {
+  try {
+    if (mainWindow) {
+      return { success: true, isMaximized: mainWindow.isMaximized() }
+    }
+    return { success: false, error: '窗口不存在' }
+  } catch (error) {
+    return { success: false, error: error.message }
+  }
+})
+
 // ========== IPC 文件操作处理 ==========
 
 // 打开文件

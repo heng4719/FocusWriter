@@ -1,10 +1,14 @@
 <template>
   <div class="app">
-    <FocusWriter />
+    <TitleBar />
+    <div class="content-area">
+      <FocusWriter />
+    </div>
   </div>
 </template>
 
 <script setup>
+import TitleBar from './components/TitleBar.vue'
 import FocusWriter from './components/FocusWriter.vue'
 </script>
 
@@ -14,7 +18,15 @@ import FocusWriter from './components/FocusWriter.vue'
   height: 100vh;
   background: #1e1e1e;
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-area {
+  flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 </style>

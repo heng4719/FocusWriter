@@ -23,5 +23,11 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getRecentFiles: () => ipcRenderer.invoke('history:getRecent'),
   addRecentFile: (filePath, fileName) => ipcRenderer.invoke('history:add', { filePath, fileName }),
   removeRecentFile: (filePath) => ipcRenderer.invoke('history:remove', filePath),
-  clearRecentFiles: () => ipcRenderer.invoke('history:clear')
+  clearRecentFiles: () => ipcRenderer.invoke('history:clear'),
+  
+  // 窗口控制
+  minimizeWindow: () => ipcRenderer.invoke('window:minimize'),
+  maximizeWindow: () => ipcRenderer.invoke('window:maximize'),
+  closeWindow: () => ipcRenderer.invoke('window:close'),
+  isMaximized: () => ipcRenderer.invoke('window:isMaximized')
 })
