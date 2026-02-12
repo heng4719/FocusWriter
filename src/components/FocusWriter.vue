@@ -561,7 +561,7 @@ const autoOpenLastFile = async () => {
   width: 100%;
   line-height: 1.6;
   font-family: 'Georgia', 'Times New Roman', serif;
-  font-style: italic;
+  /* font-style: italic; */
   padding: 20px;
 }
 

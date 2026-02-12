@@ -12,13 +12,14 @@ let mainWindow
 
 function createWindow() {
   // 使用绝对路径确保 preload 脚本能正确加载
-  console.log("111111111")
   const preloadPath = path.resolve(__dirname, 'preload.cjs')
   console.log('Preload path:', preloadPath)
   
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
+    frame: false,
+    resizable: true,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
