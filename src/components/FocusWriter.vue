@@ -379,7 +379,7 @@ const autoOpenLastFile = async () => {
 /* 左上角文件名区域 */
 .filename-section {
   position: absolute;
-  top: 52px; /* 20px + 32px 标题栏高度 */
+  top: 25px; /* 20px + 32px 标题栏高度 */
   left: 20px;
   z-index: 100;
 }
@@ -471,7 +471,7 @@ const autoOpenLastFile = async () => {
 /* 右上角控制按钮 */
 .top-controls {
   position: absolute;
-  top: 52px; /* 20px + 32px 标题栏高度 */
+  top: 25px; /* 20px + 32px 标题栏高度 */
   right: 20px;
   display: flex;
   gap: 10px;

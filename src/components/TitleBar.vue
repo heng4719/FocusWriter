@@ -1,5 +1,8 @@
 <template>
   <div class="title-bar">
+    <div class="app-title">
+      <span class="app-name">FocusWriter</span>
+    </div>
     <div class="title-bar-drag-region"></div>
     <div class="window-controls">
       <button class="window-control-btn minimize" @click="minimizeWindow" title="最小化">
@@ -83,15 +86,31 @@ onUnmounted(() => {
   border-bottom: 1px solid #333;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: relative;
   -webkit-app-region: drag;
   user-select: none;
 }
 
+.app-title {
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  -webkit-app-region: drag;
+}
+
+.app-name {
+  font-size: 13px;
+  color: #888;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 .title-bar-drag-region {
   position: absolute;
-  left: 0;
+  left: 120px; /* 为应用标题留出空间 */
   top: 0;
   right: 140px; /* 为窗口控制按钮留出空间 */
   height: 100%;
