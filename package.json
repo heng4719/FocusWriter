@@ -7,10 +7,35 @@
   "scripts": {
     "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron .\"",
     "dev:vite": "vite",
-    "build": "vite build",
+    "build": "electron-builder",
     "preview": "vite preview",
     "electron": "cross-env NODE_ENV=development electron .",
     "electron:build": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.zhangdali.focuswrite",
+    "productName": "FocusWrite",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/**/*",
+      "src/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis", 
+          "arch": ["x64"] 
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    }
   },
   "dependencies": {
     "pinia": "^2.1.0",

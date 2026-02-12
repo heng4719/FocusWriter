@@ -1,7 +1,7 @@
 <template>
   <div class="title-bar">
     <div class="app-title">
-      <span class="app-name">FocusWriter</span>
+      <span class="app-name">FocusWrite</span>
     </div>
     <div class="title-bar-drag-region"></div>
     <div class="window-controls">
